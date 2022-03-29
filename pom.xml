@@ -110,7 +110,7 @@
 			<!-- http://maven.apache.org/guides/mini/guide-building-for-different-environments.html -->
 			<id>openshift</id>
 			<build>
-			   <finalName>parksystem</finalName>
+			   <finalName>${artifactId}</finalName>
 			   <plugins>
 			     <plugin>
 			           <artifactId>maven-war-plugin</artifactId>
