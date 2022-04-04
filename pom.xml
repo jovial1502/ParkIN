@@ -109,6 +109,21 @@
 
     </dependencies>
 
+	<build>
+	    <plugins>
+			<plugin>
+			    <groupId>org.apache.maven.plugins</groupId>
+			    <artifactId>maven-war-plugin</artifactId>
+			    <configuration>
+			        <archive>
+			            <manifestEntries>
+			                <Dependencies>jdk.unsupported</Dependencies>
+			            </manifestEntries>
+			        </archive>
+			    </configuration>
+			</plugin>
+	    </plugins>
+	</build>
 
     <profiles>
         <!-- Jenkins by default defines a property BUILD_NUMBER which is used to enable the profile. -->
@@ -137,11 +152,17 @@
 			   <finalName>${artifactId}</finalName>
 			   <plugins>
 			     <plugin>
+			           <groupId>org.apache.maven.plugins</groupId>			     
 			           <artifactId>maven-war-plugin</artifactId>
 			           <configuration>
 			               <failOnMissingWebXml>false</failOnMissingWebXml>
 			               <outputDirectory>target</outputDirectory>
-			         		  <warName>ROOT</warName>
+			         	   <warName>ROOT</warName>
+					        <archive>
+					            <manifestEntries>
+					                <Dependencies>jdk.unsupported</Dependencies>
+					            </manifestEntries>
+					        </archive>			         	   
 			           </configuration>
 			       </plugin>
 			   </plugins>
